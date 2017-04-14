@@ -1,0 +1,35 @@
+<?php
+include_once('simple_html_dom.php');
+
+$emas = file_get_html('http://harga-emas.org');
+$emas2=$emas->find('div.col-md-8',0);
+$emasb4trim = $emas2->find('table tbody tr',3)->find('td',3);
+echo "Goldd : <br>";
+echo $emastrim = str_replace('.','',substr($emasb4trim, 0 ,strpos($emasb4trim, '(')));
+echo "<br>OIL : <br>";
+
+
+$oil = file_get_html('http://hargaminyak.net/');
+$oil2=$oil->find('div.col-md-8',0);
+$oilb4trim = $oil2->find('table tbody tr',3)->find('td',2);
+//echo $oilb4trim;
+//echo $oil;
+echo $oiltrim = str_replace(',','.',$oilb4trim);
+
+echo "<br>inflation : <br>";
+//inflasi
+$html1 = file_get_html('http://www.bi.go.id/id/moneter/inflasi/data/');
+$tabel1 = $html1->find('div.s4-ca',0);
+$inflasi = $html1->find('center table.table1',0)->find('tbody tr',1)->find('td',1);
+echo substr($inflasi, 0, strpos($inflasi, '%'));
+
+//USD
+echo "<br>USD : <br>";
+//inflasi
+$usd = file_get_html('http://www.bi.go.id/en/moneter/informasi-kurs/transaksi-bi/Default.aspx');
+$usdtable = $usd->find('div.s4-ca',0);
+$usdb4trim = $usdtable->find('table.table1',0)->find('tbody tr',23)->find('td',2);
+//echo substr($inflasi, 0, strpos($inflasi, '%'));
+echo $usdb4trim;
+
+?>

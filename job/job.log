@@ -1,0 +1,8 @@
+Goldd : <td bgcolor="yellow">548.932 (<font color='blue'>+239</font>)</td><br>548932<br>0.31147407360963<br>inflation : <br>0.0361<br>0.24675615212528<br>USD : <br>13330<br>0.45466666666667<br>CNY : <br>1941.71<br>0.12519700949687<br>SGD : <br>9551.45<br>0.7741739017753<br>SBDK : <br>        10.50     <br>0.15795053003534<br>OIL : <br>55.89<br>0.66174479819504<br>INSERT INTO `prediction2` (`date`, `usd`, `norm_usd`, `sgd`, `norm_sgd`, `cny`, `norm_cny`, `gold`, `norm_gold`, `inflation`, `norm_inflation`,`oil`,`norm_oil`,`interest`,`norm_interest`)
+VALUES('2017-04-14', 13330, 0.45466666666667, 9551.45, 0.7741739017753, 1941.71, 0.12519700949687, 548932, 0.31147407360963, 0.0361, 0.24675615212528, 55.89, 0.66174479819504,        10.50     ,0.15795053003534)Error: INSERT INTO `prediction2` (`date`, `usd`, `norm_usd`, `sgd`, `norm_sgd`, `cny`, `norm_cny`, `gold`, `norm_gold`, `inflation`, `norm_inflation`,`oil`,`norm_oil`,`interest`,`norm_interest`)
+VALUES('2017-04-14', 13330, 0.45466666666667, 9551.45, 0.7741739017753, 1941.71, 0.12519700949687, 548932, 0.31147407360963, 0.0361, 0.24675615212528, 55.89, 0.66174479819504,        10.50     ,0.15795053003534)<br>Duplicate entry '2017-04-14' for key 'PRIMARY'<br> To Prediction7...<script type="text/javascript">document.location.replace("../php-fann/core/prediction7.php?usd=0.45466666666667&sgd=0.7741739017753&cny=0.7741739017753&gold=0.31147407360963&inflation=0.24675615212528&oil=0.66174479819504&interest=0.15795053003534");</script><br>2017-04-14date
+Fri Apr 14 07:49:16 EDT 2017
+Fri Apr 14 09:50:24 EDT 2017
+Fri Apr 14 09:51:07 EDT 2017
+Fri Apr 14 09:51:50 EDT 2017
+Fri Apr 14 10:02:00 EDT 2017

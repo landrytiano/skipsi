@@ -1,0 +1,4 @@
+#! /bin/bash
+
+curl localhost/job/index.php
+date >> job.log
