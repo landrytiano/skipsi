@@ -1,1 +1,1 @@
-# skipsi
+# Skripsi
