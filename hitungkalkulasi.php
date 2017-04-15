@@ -1,7 +1,3 @@
-<html>
-<head>
-<title>Result</title>	
-</head>
 <?php
 include 'job/controller/database.php';
 $date=date('Y-m-d');
@@ -63,23 +59,21 @@ $jenis=$_REQUEST['jenis'];
 $jumlah=$_REQUEST['jumlah'];
 $tanggal=$_REQUEST['tanggal'];
 
-if (strcmp($jenis,"idr_to_usd")==0) {
-        $hasil = idr_to_usd($jumlah,$tanggal);
-}elseif ($jenis=="usd_to_idr") {
-        $hasil = usd_to_idr($jumlah,$tanggal);
+if(empty($jenis)){
+     header("location: kalkulasi.php?err=Jenis kalkulasi harus diisi");   
+}else if(empty($jumlah)){
+        header("location: kalkulasi.php?err=Jumlah harus diisi");
+}else if($jumlah<=0){
+        header("location: kalkulasi.php?err=Jumlah tidak boleh berisi nol");
+}else if($tanggal==""){
+        header("location: kalkulasi.php?err=Tanggal harus diisi");
+}else{
+
+        if (strcmp($jenis,"idr_to_usd")==0) {
+                $hasil = idr_to_usd($jumlah,$tanggal);
+        }elseif ($jenis=="usd_to_idr") {
+                $hasil = usd_to_idr($jumlah,$tanggal);
+        }
+        header("location: kalkulasi.php?hasil=$hasil&jenis=$jenis&jumlah=$jumlah&tanggal=$tanggal");
 }
-//idr_to_sgd
-//idr_to_cny
-//usd_to_idr
-//sgd_to_idr
-//cny_to_idr
-
-//echo $hasil; echo $jenis; echo $jumlah; echo $tanggal;
-
-header("location: kalkulasi.php?hasil=$hasil&jenis=$jenis&jumlah=$jumlah&tanggal=$tanggal");
-
 ?>
-
-</br>
-<a href="input.php">back</a>
-</html>

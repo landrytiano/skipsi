@@ -275,7 +275,13 @@ $row["date"]; echo "\n";
             </table>
           <hr>
         <?php } ?>
-
+<?php 
+  if (!empty($_REQUEST["err"])){
+?>
+  <div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><center><strong>Error, </strong><?php echo $_REQUEST["err"] ?></center></div>
+<?php 
+  }
+?>
       <h4 align='left'>Kalkulasi</h4>
       <h5>Silakan masukkan yang ingin anda kalkulasi:</h5>
       <div class='row'>
