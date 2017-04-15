@@ -1,4 +1,14 @@
 <?php include 'header.php' ?>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php">Beranda</a></li>
+        <li><a href="prediksi.php">Prediksi</a></li>
+        <li><a href="kalkulasi.php">Kalkulasi</a></li>
+        <li><a href="histori.php">Histori</a></li>
+      </ul>
+  </div>
+</nav>
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-1 sidenav"></div>

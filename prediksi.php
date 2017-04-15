@@ -1,4 +1,15 @@
 <?php include 'header.php' ?>  
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php">Beranda</a></li>
+        <li class="active"><a href="prediksi.php">Prediksi</a></li>
+        <li><a href="kalkulasi.php">Kalkulasi</a></li>
+        <li><a href="histori.php">Histori</a></li>
+      </ul>
+  </div>
+</nav>
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-1 sidenav">
@@ -23,7 +34,6 @@ $query2 = "SELECT * FROM prediction2 order by date desc";
 $result2 = $conn->query($query2);
 $row2 = mysqli_fetch_assoc($result2);
 
-
 $row["date"]; echo "\n";
 
 $predictedusd=$_REQUEST['predictedusd'];
@@ -33,7 +43,6 @@ $gold=$_REQUEST['gold'];
 $oil=$_REQUEST['oil'];
 $inflation=$_REQUEST['inflation'];
 $interest=$_REQUEST['interest'];
-
 
 if ($nilai=='' or $gold=='' or $oil=='' or $inflation=='' or $interest=='') { 
 }else{
@@ -66,12 +75,11 @@ if ($nilai=='' or $gold=='' or $oil=='' or $inflation=='' or $interest=='') {
           </tr>
           <tr>
             <td>Nilai Rupiah terhadap <?php echo $matauang; ?></td>
-            <td><?php echo $predictedusd ?></td>
+            <td><?php echo number_format($predictedusd,2) ?></td>
           </tr>                                        
       </table>
     <hr>
   <?php } ?>
-
   <h4 align='left'>Prediksi Manual</h4>
   <div class='row'>
     <div class="form-group">
@@ -137,15 +145,8 @@ if ($nilai=='' or $gold=='' or $oil=='' or $inflation=='' or $interest=='') {
     </form>
     </div>
     </div>
-
-
-
-
      </div>
-
-  
     <div class="col-sm-1 sidenav">
-
     </div>
   </div>
 </div>

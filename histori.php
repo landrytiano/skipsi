@@ -76,10 +76,9 @@
     <div class="col-sm-1 sidenav"></div>
     <div class="col-sm-10 text-left"> 
       <h1 align='center'>Histori</h1>
-        <div class="row"><form action="prediksi.php" method="get"></div>
+        <div class="row"><form action="query_history.php" method="get"></div>
         <div class='row'>
-          <div class='col-sm-2'></div>
-          <div class='col-sm-2'>          
+        <div class='col-sm-2'>          
             <?php echo $_GET['matauang']; ?>
             <select class="form-control" id="matauang">
               <option value="all">ALL</option>
@@ -88,31 +87,52 @@
               <option value="cny">CNY</option>
             </select>
           </div>
-
 <?php 
+
+$date = date_create();
   
-echo  $tahun_now = date("Y");
-echo  $bulan_now = date("M");
+ $tahun_now = date("Y");
+ $bulan_now = date("M");
 
- echo $tahun_start = "2015";
-echo  $bulan_start = "1";
 
-echo  $selisih_tahun=$tahun_now-$tahun_start;
+ $tahun_start = "2015";
+  $bulan_start = "1";
 
+
+$selisih_tahun=$tahun_now-$tahun_start;
 
  ?>
 
           <div class='col-sm-2'>
-            <select class="form-control" id="mulai">
+            <select class="form-control" id="bulan_mulai" name="bulan_mulai">
+              <?php for ($i=2; $i <= 13; $i++) { 
+                      date_date_set($date, null, $i, null);
+                ?>
+                <option value="<?php echo $i-1; ?>"><?php echo date_format($date, 'M'); ?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class='col-sm-2'>
+            <select class="form-control" id="tahun_mulai" name="tahun_mulai">
               <?php for ($i=0; $i <= $selisih_tahun; $i++) { ?>
                 <option value="<?php echo $tahun_start+$i; ?>"><?php echo $tahun_start+$i;?></option>
               <?php } ?>
             </select>
           </div>
           <div class='col-sm-2'>
-            <select class="form-control" id="akhir">
-              <?php for ($i=$selisih_tahun; $i >= 0; $i--) { ?>
-                <option value="<?php echo $tahun_now-$i;?>"><?php echo $tahun_now-$i;?></option>
+            <select class="form-control" id="bulan_end" name="bulan_end">
+                <?php for ($i=2; $i <= 13; $i++) { 
+                      date_date_set($date, null, $i, null);
+                ?>
+                <option value=<?php echo $i-1; ?>><?php echo date_format($date, 'M'); ?></option>
+              <?php } ?>
+            </select>
+          </div>
+
+          <div class='col-sm-2'>
+            <select class="form-control" id="tahun_end" name="tahun_end">
+              <?php for ($selisih_tahun; $selisih_tahun >= 0; $selisih_tahun--) { ?>
+                <option value="<?php echo $tahun_now-$selisih_tahun;?>"><?php echo $tahun_now-$selisih_tahun;?></option>
               <?php } ?>
             </select>
           </div>
@@ -123,6 +143,8 @@ echo  $selisih_tahun=$tahun_now-$tahun_start;
       </form>
       <hr>
 <?php 
+
+  
 
   include 'job/controller/database.php';
   $query = "";//SELECT * FROM prediction2 order by date desc";

@@ -1,6 +1,17 @@
 <?php include 'job/controller/database.php'; ?>
 <?php include 'header.php' ?>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.php">Beranda</a></li>
+        <li><a href="prediksi.php">Prediksi</a></li>
+        <li><a href="kalkulasi.php">Kalkulasi</a></li>
+        <li><a href="histori.php">Histori</a></li>
+      </ul>
+  </div>
+</nav>
+<?php
 $query = "SELECT * FROM prediction2 order by date desc limit 1";
 $result = $conn->query($query);
 $row = mysqli_fetch_assoc($result);
@@ -28,7 +39,7 @@ $row = mysqli_fetch_assoc($result);
             <td>USA Dollar (USD)</td>
             <td>IDR 
             <?php 
-                echo $row["usd"];
+                echo number_format($row["usd"],2);
             ?>
             </td> 
           </tr>
@@ -36,7 +47,7 @@ $row = mysqli_fetch_assoc($result);
             <td>Singapore Dollar (SGD)</td>
               <td>IDR 
             <?php 
-                echo $row["sgd"];
+                echo number_format($row["sgd"],2);
 
             ?>
             </td> 
@@ -45,7 +56,7 @@ $row = mysqli_fetch_assoc($result);
             <td>China Yuan (CNY)</td>
              <td>IDR 
             <?php 
-                echo $row["cny"];
+                echo number_format($row["cny"],2);
 
             ?>
             </td> 
@@ -77,7 +88,7 @@ $query = "SELECT * FROM prediction7 where date='$date'";
 $result = $conn->query($query);
 $row = mysqli_fetch_assoc($result);
 
-$query2 = "SELECT * FROM prediction2 order by date desc";
+$query2 = "SELECT * FROM prediction2 where date='$date'";
 $result2 = $conn->query($query2);
 $row2 = mysqli_fetch_assoc($result2);
 
@@ -112,14 +123,14 @@ $row["date"]; echo "\n";
             </thead>
               <tbody>
               <tr align="left">
-                <td><?php echo $row["today_value"]; echo "\n";?></td>
-                <td><?php echo $row["day1_value"]; echo "\n";?></td>
-                <td><?php echo $row["day2_value"]; echo "\n";?></td>
-                <td><?php echo $row["day3_value"]; echo "\n";?></td>
-                <td><?php echo $row["day4_value"]; echo "\n";?></td>
-                <td><?php echo $row["day5_value"]; echo "\n";?></td>
-                <td><?php echo $row["day6_value"]; echo "\n";?></td>
-                <td><?php echo $row["day7_value"]; echo "\n";?></td>
+                <td><?php echo number_format($row["today_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day1_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day2_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day3_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day4_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day5_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day6_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day7_value"],2); echo "\n";?></td>
               </tr>
             </tbody>
             </table>  
@@ -156,7 +167,7 @@ $row["date"]; echo "\n";
                 <td>
                 <?php
                     //data prediksi ini nantinya akan dibuat 1 row untuk 7 hari berikutnya, select by day yang increment 
-                    echo $row2["sgd"];
+                    echo number_format($row2["sgd"],2);
                   ?>
                 </td>
                   <?php
@@ -198,7 +209,7 @@ $row["date"]; echo "\n";
                 <td>
                 <?php
                     //data prediksi ini nantinya akan dibuat 1 row untuk 7 hari berikutnya, select by day yang increment 
-                    echo $row2["cny"];
+                    echo number_format($row2["cny"],2);
                   ?>
                 </td>
                   <?php

@@ -63,8 +63,8 @@ if(empty($jenis)){
      header("location: kalkulasi.php?err=Jenis kalkulasi harus diisi");   
 }else if(empty($jumlah)){
         header("location: kalkulasi.php?err=Jumlah harus diisi");
-}else if($jumlah<=0){
-        header("location: kalkulasi.php?err=Jumlah tidak boleh berisi nol");
+}else if($jumlah<=0 || !is_numeric($jumlah)){
+        header("location: kalkulasi.php?err=Jumlah tidak boleh berisi nol atau selain angka");
 }else if($tanggal==""){
         header("location: kalkulasi.php?err=Tanggal harus diisi");
 }else{

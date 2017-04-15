@@ -59,14 +59,3 @@
   </style>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.php">Beranda</a></li>
-        <li><a href="prediksi.php">Prediksi</a></li>
-        <li><a href="kalkulasi.php">Kalkulasi</a></li>
-        <li><a href="histori.php">Histori</a></li>
-      </ul>
-  </div>
-</nav>

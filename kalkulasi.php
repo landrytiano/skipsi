@@ -1,4 +1,15 @@
 <?php include 'header.php' ?>  
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="index.php">Beranda</a></li>
+        <li><a href="prediksi.php">Prediksi</a></li>
+        <li class="active"><a href="kalkulasi.php">Kalkulasi</a></li>
+        <li><a href="histori.php">Histori</a></li>
+      </ul>
+  </div>
+</nav>
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-1 sidenav">
@@ -75,14 +86,14 @@ $row["date"]; echo "\n";
             </thead>
               <tbody>
               <tr align="left">
-                <td><?php echo $row["today_value"]; echo "\n";?></td>
-                <td><?php echo $row["day1_value"]; echo "\n";?></td>
-                <td><?php echo $row["day2_value"]; echo "\n";?></td>
-                <td><?php echo $row["day3_value"]; echo "\n";?></td>
-                <td><?php echo $row["day4_value"]; echo "\n";?></td>
-                <td><?php echo $row["day5_value"]; echo "\n";?></td>
-                <td><?php echo $row["day6_value"]; echo "\n";?></td>
-                <td><?php echo $row["day7_value"]; echo "\n";?></td>
+                <td><?php echo number_format($row["today_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day1_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day2_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day3_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day4_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day5_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day6_value"],2); echo "\n";?></td>
+                <td><?php echo number_format($row["day7_value"],2); echo "\n";?></td>
               </tr>
             </tbody>
             </table>  
@@ -199,7 +210,7 @@ $row["date"]; echo "\n";
                 </tr>
                 <tr>
                   <td>Hasil</td>
-                  <td><?php echo $hasil; ?></td>
+                  <td><?php echo number_format($hasil,2) ?></td>
                 </tr>
             </table>
           <hr>
