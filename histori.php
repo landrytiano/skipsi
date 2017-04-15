@@ -183,7 +183,6 @@
   if (mysqli_num_rows($result)>0) {
 ?>
       <div class="col-md-12">
-      <div class="CodeMirror-simplescroll-vertical">
       <table class="table table-bordered">
         <thead  align="center">
           <tr>
@@ -209,6 +208,15 @@
             <td><?php echo $row["inflation"] ?></td>
             <td><?php echo $row["interest"] ?></td>            
           </tr>
+          <tr>
+            <ul class="pagination pagination-lg">
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+            </ul>
+          </tr>
           <?php 
             }
           }else {
@@ -217,7 +225,6 @@
           ?>
         </tbody>
       </table>
-      </div>
       </div>
           <!-- <div class="col-md-10">
               <div id="area-example" style="height:300px;"></div>
