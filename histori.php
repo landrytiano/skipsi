@@ -56,73 +56,6 @@
     .morris-hover{position:absolute;z-index:1000}.morris-hover.morris-default-style{border-radius:10px;padding:6px;color:#666;background:rgba(255,255,255,0.8);border:solid 2px rgba(230,230,230,0.8);font-family:sans-serif;font-size:12px;text-align:center}.morris-hover.morris-default-style .morris-hover-row-label{font-weight:bold;margin:0.25em 0}
     .morris-hover.morris-default-style .morris-hover-point{white-space:nowrap;margin:0.1em 0}
 
-/*CodeMirror*/
-.CodeMirror-simplescroll-horizontal div, .CodeMirror-simplescroll-vertical div {
-  position: absolute;
-  background: #ccc;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 1px solid #bbb;
-  border-radius: 2px;
-}
-
-.CodeMirror-simplescroll-horizontal, .CodeMirror-simplescroll-vertical {
-  position: absolute;
-  z-index: 6;
-  background: #eee;
-}
-
-.CodeMirror-simplescroll-horizontal {
-  bottom: 0; left: 0;
-  height: 8px;
-}
-.CodeMirror-simplescroll-horizontal div {
-  bottom: 0;
-  height: 100%;
-}
-
-.CodeMirror-simplescroll-vertical {
-  right: 0; top: 0;
-  width: 8px;
-}
-.CodeMirror-simplescroll-vertical div {
-  right: 0;
-  width: 100%;
-}
-
-
-.CodeMirror-overlayscroll .CodeMirror-scrollbar-filler, .CodeMirror-overlayscroll .CodeMirror-gutter-filler {
-  display: none;
-}
-
-.CodeMirror-overlayscroll-horizontal div, .CodeMirror-overlayscroll-vertical div {
-  position: absolute;
-  background: #bcd;
-  border-radius: 3px;
-}
-
-.CodeMirror-overlayscroll-horizontal, .CodeMirror-overlayscroll-vertical {
-  position: absolute;
-  z-index: 6;
-}
-
-.CodeMirror-overlayscroll-horizontal {
-  bottom: 0; left: 0;
-  height: 6px;
-}
-.CodeMirror-overlayscroll-horizontal div {
-  bottom: 0;
-  height: 100%;
-}
-
-.CodeMirror-overlayscroll-vertical {
-  right: 0; top: 0;
-  width: 6px;
-}
-.CodeMirror-overlayscroll-vertical div {
-  right: 0;
-  width: 100%;
-}
   </style>
 </head>
 <body>
@@ -137,7 +70,7 @@
       </ul>
   </div>
 </nav>
-  
+
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-1 sidenav"></div>
@@ -155,17 +88,31 @@
               <option value="cny">CNY</option>
             </select>
           </div>
+
+<?php 
+  
+echo  $tahun_now = date("Y");
+echo  $bulan_now = date("M");
+
+ echo $tahun_start = "2015";
+echo  $bulan_start = "1";
+
+echo  $selisih_tahun=$tahun_now-$tahun_start;
+
+
+ ?>
+
           <div class='col-sm-2'>
             <select class="form-control" id="mulai">
-              <?php for ($i=0; $i < 7; $i++) { ?>
-                <option value="<?php echo date("j")+$i; echo date(" M Y");?>"><?php echo date("j")+$i; echo date(" M Y");?></option>
+              <?php for ($i=0; $i <= $selisih_tahun; $i++) { ?>
+                <option value="<?php echo $tahun_start+$i; ?>"><?php echo $tahun_start+$i;?></option>
               <?php } ?>
             </select>
           </div>
           <div class='col-sm-2'>
             <select class="form-control" id="akhir">
-              <?php for ($i=7; $i >= 0; $i--) { ?>
-                <option value="<?php echo date("j")+$i; echo date(" M Y");?>"><?php echo date("j")+$i; echo date(" M Y");?></option>
+              <?php for ($i=$selisih_tahun; $i >= 0; $i--) { ?>
+                <option value="<?php echo $tahun_now-$i;?>"><?php echo $tahun_now-$i;?></option>
               <?php } ?>
             </select>
           </div>
@@ -176,10 +123,10 @@
       </form>
       <hr>
 <?php 
+
   include 'job/controller/database.php';
-  $query = "SELECT * FROM prediction2 order by date desc";
+  $query = "";//SELECT * FROM prediction2 order by date desc";
   $result = $conn->query($query);
-  //$row = mysqli_fetch_assoc($result);
   if (mysqli_num_rows($result)>0) {
 ?>
       <div class="col-md-12">
@@ -207,15 +154,6 @@
             <td><?php echo $row["oil"] ?></td>
             <td><?php echo $row["inflation"] ?></td>
             <td><?php echo $row["interest"] ?></td>            
-          </tr>
-          <tr>
-            <ul class="pagination pagination-lg">
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-            </ul>
           </tr>
           <?php 
             }
