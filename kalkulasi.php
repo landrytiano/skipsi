@@ -316,22 +316,12 @@ $row["date"]; echo "\n";
         <div class="col-sm-12" align="center">
           <button type="submit " class="btn btn-default" value="Submit Button">Kalkulasi Sekarang</button>
         </div>
-        <div class="alert">
-          <strong>Warning!</strong> Indicates a warning that might need attention.
-        </div>
       </form>
       </div>
 
       </div>
     </div>
     <div class="col-sm-1 sidenav">
-<!--      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    -->
     </div>
 
 </div>
